@@ -1,9 +1,8 @@
 import { View, Text } from "react-native";
-import React from "react";
 
 import MainButton from "components/MainButton";
 
-const Login = ({ navigation }) => {
+const LoginScreen = ({ navigation }) => {
   return (
     <View>
       <Text>Login Screen</Text>
@@ -14,4 +13,4 @@ const Login = ({ navigation }) => {
   );
 };
 
-export default Login;
+export default LoginScreen;

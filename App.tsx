@@ -1,8 +1,8 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
 import { DefaultTheme, Provider as PaperProvider } from "react-native-paper";
 
-import MainNavigator from "./src/navigation/MainNavigator";
+import useStore from "hooks/useStore";
+import LoginScreen from "screens/LoginScreen";
+import MainNavigator from "navigation/MainNavigator";
 
 const theme = {
   ...DefaultTheme,
@@ -14,18 +14,11 @@ const theme = {
 };
 
 export default function App() {
+  const isAuthenticated = useStore((state) => state.isAuthenticated);
+
   return (
     <PaperProvider theme={theme}>
-      <MainNavigator />
+      {!isAuthenticated ? <LoginScreen /> : <MainNavigator />}
     </PaperProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

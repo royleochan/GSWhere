@@ -1,14 +1,15 @@
 import { View, Text } from "react-native";
 
 import MainButton from "components/MainButton";
+import useStore from "hooks/useStore";
 
-const LoginScreen = ({ navigation }) => {
+const LoginScreen = () => {
+  const login = useStore((state) => state.login);
+
   return (
     <View>
       <Text>Login Screen</Text>
-      <MainButton onPress={() => navigation.navigate("GSWhere")}>
-        Login
-      </MainButton>
+      <MainButton onPress={login}>Login</MainButton>
     </View>
   );
 };

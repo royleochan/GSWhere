@@ -1,8 +1,0 @@
-type DeskDetails @model @auth(rules: [{allow: public}]) {
-  id: ID!
-  Floor: String
-  Location: String
-  Country: String
-  Region: String
-  Hardware: String
-}

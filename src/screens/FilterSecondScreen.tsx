@@ -2,8 +2,6 @@ import SelectDropdown from "react-native-select-dropdown";
 import * as React from "react";
 import { View, StyleSheet } from "react-native";
 import { Text, Button } from "react-native-paper";
-
-<<<<<<< HEAD
 import MainButton from "components/MainButton";
 import useChangeOrientation from "hooks/useChangeOrientation";
 
@@ -18,10 +16,6 @@ const FilterSecondScreen = ({ navigation }) => {
       </MainButton>
     </View>
   );
-=======
-const FilterSecondScreen = () => {
-  return <View></View>;
->>>>>>> Filter_page
 };
 
 export default FilterSecondScreen;

@@ -12,6 +12,7 @@ module.exports = function (api) {
             constants: "./src/constants",
             navigation: "./src/navigation",
             hooks: "./src/hooks",
+            utils: "./src/utils",
           },
         },
       ],

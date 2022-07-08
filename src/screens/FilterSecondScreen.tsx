@@ -25,7 +25,7 @@ const FilterSecondScreen = ({ navigation }) => {
   useChangeOrientation("portrait");
 
   return (
-    <View>
+    <View style={{ display: "flex", alignItems: "center" }}>
       <View style={styles.viewContainer}>
         <ScrollView
           showsVerticalScrollIndicator={false}
@@ -73,9 +73,11 @@ const FilterSecondScreen = ({ navigation }) => {
           />
         </ScrollView>
       </View>
-      <MainButton onPress={() => navigation.navigate("FloorPlan")}>
-        Next
-      </MainButton>
+      <View style={{ width: 150 }}>
+        <MainButton onPress={() => navigation.navigate("FloorPlan")}>
+          Next
+        </MainButton>
+      </View>
     </View>
   );
 };
@@ -113,7 +115,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: { color: "#000", fontWeight: "bold", fontSize: 16 },
   saveAreaViewContainer: { flex: 1, backgroundColor: "#FFF" },
-  viewContainer: { marginBottom: "30%", width },
+  viewContainer: { width },
   scrollViewContainer: {
     flexGrow: 1,
     justifyContent: "space-between",

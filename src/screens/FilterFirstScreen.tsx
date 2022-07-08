@@ -1,8 +1,8 @@
 import SelectDropdown from "react-native-select-dropdown";
 import MainButton from "components/MainButton";
 import * as React from "react";
-import { View, StyleSheet } from "react-native";
-import { Text, Button } from "react-native-paper";
+import { View } from "react-native";
+import { Text } from "react-native-paper";
 
 const region = ["AsiaPacific", "Europe", "Americas"];
 
@@ -37,8 +37,8 @@ const FilterFirstScreen = ({ navigation }) => {
   const [showFourthList, setFourthList] = React.useState(false);
 
   const navigateToSecondFilter = () => {
-    navigation.navigate("FilterSecond")
-  }
+    navigation.navigate("FilterSecond");
+  };
 
   return (
     <View>

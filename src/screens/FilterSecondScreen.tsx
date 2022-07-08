@@ -87,7 +87,6 @@ const styles = StyleSheet.create({
     paddingLeft: 0,
     paddingTop: 30,
     paddingBottom: 15,
-    // justifyContent: "space-between"
   },
   hdr: {
     marginBottom: "30%",

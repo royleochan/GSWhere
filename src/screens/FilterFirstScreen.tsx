@@ -1,4 +1,5 @@
 import SelectDropdown from "react-native-select-dropdown";
+import MainButton from "components/MainButton";
 import * as React from "react";
 import { View, StyleSheet } from "react-native";
 import { Text, Button } from "react-native-paper";
@@ -34,6 +35,10 @@ const FilterFirstScreen = ({ navigation }) => {
   const [showSecondList, setSecondList] = React.useState(false);
   const [showThirdList, setThirdList] = React.useState(false);
   const [showFourthList, setFourthList] = React.useState(false);
+
+  const navigateToSecondFilter = () => {
+    navigation.navigate("FilterSecond")
+  }
 
   return (
     <View>
@@ -104,6 +109,7 @@ const FilterFirstScreen = ({ navigation }) => {
       ) : (
         <Text></Text>
       )}
+      <MainButton onPress={navigateToSecondFilter}>Submit</MainButton>
     </View>
   );
 };

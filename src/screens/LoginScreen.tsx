@@ -29,17 +29,17 @@ const LoginScreen = () => {
       <View style={{ width: "100%" }}>
         <TextInput
           mode="outlined"
-          label="Kerbos"
-          placeholder="Type kerbos"
+          label="kerebos"
+          placeholder="Type kerebos"
           onChangeText={setKerbos}
-          right={<TextInput.Affix text="/100" />}
+          right={<TextInput.Affix text="/10" />}
         />
         <TextInput
           mode="outlined"
           label="securID"
           placeholder="Type securID"
           onChangeText={setSecurID}
-          right={<TextInput.Affix text="/100" />}
+          right={<TextInput.Affix text="/12" />}
         />
       </View>
       <View style={styles.checkboxContainer}>

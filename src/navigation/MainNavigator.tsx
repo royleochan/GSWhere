@@ -1,26 +1,36 @@
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Ionicons } from "@expo/vector-icons";
 
-import FilterFirstScreen from "screens/FilterFirstScreen";
-import FilterSecondScreen from "screens/FilterSecondScreen";
+import SeatNavigator from "./SeatNavigator";
+import ProfileScreen from "screens/ProfileScreen";
 
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const MainNavigator = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="FilterFirst"
-          options={{ title: "GSWhere" }}
-          component={FilterFirstScreen}
+      <Tab.Navigator screenOptions={{ tabBarActiveTintColor: "#11294D" }}>
+        <Tab.Screen
+          name="Book A Seat"
+          component={SeatNavigator}
+          options={{
+            headerShown: false,
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="book" color={color} size={size} />
+            ),
+          }}
         />
-        <Stack.Screen
-          name="FilterSecond"
-          options={{ title: "GSWhere" }}
-          component={FilterSecondScreen}
+        <Tab.Screen
+          name="My Bookings"
+          component={ProfileScreen}
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="person" color={color} size={size} />
+            ),
+          }}
         />
-      </Stack.Navigator>
+      </Tab.Navigator>
     </NavigationContainer>
   );
 };

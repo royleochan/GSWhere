@@ -1,10 +1,10 @@
 import { View, Text } from "react-native";
 
 import MainButton from "components/MainButton";
-import useChangeToPortrait from "hooks/useChangeToPortrait";
+import useChangeOrientation from "hooks/useChangeOrientation";
 
 const FilterSecondScreen = ({ navigation }) => {
-  useChangeToPortrait();
+  useChangeOrientation("portrait");
 
   return (
     <View>

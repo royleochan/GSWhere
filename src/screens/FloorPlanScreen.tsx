@@ -1,21 +1,26 @@
-import { View, Text } from "react-native";
-import { lockAsync, OrientationLock } from "expo-screen-orientation";
-import { useEffect } from "react";
+import { View, StyleSheet, Text } from "react-native";
+
+import Seat from "components/Seat";
+import Desk from "components/Desk";
+import useChangeOrientation from "hooks/useChangeOrientation";
 
 const FloorPlanScreen = () => {
-  const changeScreenOrientation = async () => {
-    await lockAsync(OrientationLock.LANDSCAPE_RIGHT);
-  };
-
-  useEffect(() => {
-    changeScreenOrientation();
-  }, []);
+  useChangeOrientation("landscape");
 
   return (
-    <View>
-      <Text>FloorPlan</Text>
+    <View style={styles.container}>
+      <Text style={{ fontSize: 26 }}>Maple Tree Anson - L16</Text>
+      <Seat />
+      <Desk />
     </View>
   );
 };
 
 export default FloorPlanScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 16,
+  },
+});

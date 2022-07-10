@@ -1,9 +1,12 @@
 import { View, ScrollView, StyleSheet, Text } from "react-native";
-import { Modal, Portal, Provider, Button } from "react-native-paper";
+import { Modal, Portal, Provider } from "react-native-paper";
 import { Image } from "react-native";
+import "react-native-get-random-values";
+import { v4 as uuidv4 } from "uuid";
 
 import Seat from "components/Seat";
 import useChangeOrientation from "hooks/useChangeOrientation";
+import MainButton from "components/MainButton";
 import chunk from "utils/chunk.js";
 import { useState, useEffect } from "react";
 import request from "utils/request";
@@ -20,8 +23,22 @@ const FloorPlanScreen = ({ navigation }) => {
     setSelectedDesk(desk);
   };
 
-  const navigateToProfile = () => {
+  const handleConfirm = async () => {
+    await bookSeat();
     navigation.navigate("My Bookings");
+  };
+
+  const bookSeat = async () => {
+    try {
+      await request.put("/BookingTable", {
+        id: uuidv4(),
+        date: Date.now().toString(),
+        desk: selectedDesk.id,
+        kerberos: "charoy",
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   useEffect(() => {
@@ -51,7 +68,9 @@ const FloorPlanScreen = ({ navigation }) => {
                 <Text>{`Monitor Specs: ${selectedDesk["monitor_specs"]}`}</Text>
                 <Text>{`Phone Type: ${selectedDesk["phone_type"]}`}</Text>
                 {!selectedDesk["reservation_status"] && (
-                  <Button onPress={navigateToProfile}>Confirm Booking</Button>
+                  <MainButton onPress={handleConfirm}>
+                    Confirm Booking
+                  </MainButton>
                 )}
               </View>
             )}

@@ -19,12 +19,8 @@ const request = {
     }
     return api.post(url, data);
   },
-  patch: (url, data, token) => {
-    return api.patch(url, data, {
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    });
+  put: (url, data) => {
+    return api.put(url, data);
   },
   delete: (url, token) => {
     return api.delete(url, {

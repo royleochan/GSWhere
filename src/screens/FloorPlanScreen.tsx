@@ -1,3 +1,4 @@
+import moment from "moment";
 import { View, ScrollView, StyleSheet, Text } from "react-native";
 import { Modal, Portal, Provider } from "react-native-paper";
 import { Image } from "react-native";
@@ -31,8 +32,8 @@ const FloorPlanScreen = ({ navigation }) => {
   const bookSeat = async () => {
     try {
       await request.put("/BookingTable", {
-        id: uuidv4(),
-        date: Date.now().toString(),
+        id: selectedDesk.id,
+        date: moment(Date.now()).format("YYYY-MM-DD"),
         desk: selectedDesk.id,
         kerberos: "charoy",
       });
